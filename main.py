@@ -1,4 +1,9 @@
+# Package Here!
 import os
+import socket
+import requests
+import pprint
+import json
 
 if __name__ == "__main__":
     OperatingSystem = os.name
@@ -6,13 +11,7 @@ if __name__ == "__main__":
     match OperatingSystem:
         case 'posix' : os.system('clear')
         case 'nt' : os.system('cls')
-
-# Package Here!
-import socket
-import requests
-import pprint
-import json
-
+#========================================
 hostName = input('Enter domain name: ')
 print("="*15)
 ip_address = socket.gethostbyname(hostName)

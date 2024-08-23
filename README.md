@@ -2,6 +2,9 @@
 ```py
 request_url = f"http://ip-api.com/json/{ip_address}" #backup.py
 ```
+```py
+requset_url = f"https://geolocation-db.com/jsonp/{ip_address}" #main.py
+```
 <h1>INFORMATION GATHERING</h1>
 <p>Geolocation API Limitations: Free APIs like ip-api.com can have limited accuracy, especially for large entities like Facebook that may use distributed server locations globally. These APIs sometimes generalize the location of a large ISP, such as Facebook or Akamai, leading to inaccuracies.
 

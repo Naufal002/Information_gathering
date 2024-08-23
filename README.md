@@ -8,5 +8,3 @@ request_url = f"http://ip-api.com/json/{ip_address}" #backup.py
 Proxy or CDN Influence: Large websites like Facebook and government websites often use Content Delivery Networks (CDNs) like Akamai, which can mask the true location of their servers. Instead of providing the actual physical server location, the API might be returning the location of the CDN node closest to you.
 
 IP Blocks: For large organizations, a single IP address can map to multiple locations due to how their infrastructure is set up (load balancers, multiple data centers, etc.). This can cause geolocation services to give a generalized location.<p>
-
-Enjoy!😁

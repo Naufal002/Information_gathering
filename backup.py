@@ -3,6 +3,15 @@ import socket
 import requests
 import pprint
 
+if __name__ == "__main__":
+    OperatingSystem = os.name
+
+    match OperatingSystem:
+        case 'posix':
+            os.system('clear')
+        case 'nt':
+            os.system('cls')
+# ============================
 def get_geolocation(ip_address):
     request_url = f"http://ip-api.com/json/{ip_address}"
     retries = 3
@@ -16,31 +25,21 @@ def get_geolocation(ip_address):
             print(f"Request failed: {e}")
             break
     return None
+#========================================
+hostName = input('Enter domain name: ')
+print("="*15)
 
-if __name__ == "__main__":
-    OperatingSystem = os.name
-
-    match OperatingSystem:
-        case 'posix':
-            os.system('clear')
-        case 'nt':
-            os.system('cls')
-
-    #========================================
-    hostName = input('Enter domain name: ')
+try:
+    ip_address = socket.gethostbyname(hostName)
+    print(f"IP Address: {ip_address}")
     print("="*15)
     
-    try:
-        ip_address = socket.gethostbyname(hostName)
-        print(f"IP Address: {ip_address}")
-        print("="*15)
-        
-        geolocation = get_geolocation(ip_address)
-        
-        if geolocation:
-            for key, value in geolocation.items():
-                pprint.pprint(f"{key} : {value}")
-        else:
-            print("Failed to retrieve geolocation data.")
-    except socket.gaierror:
-        print("Invalid domain name.")
+    geolocation = get_geolocation(ip_address)
+    
+    if geolocation:
+        for key, value in geolocation.items():
+            pprint.pprint(f"{key} : {value}")
+    else:
+        print("Failed to retrieve geolocation data.")
+except socket.gaierror:
+    print("Invalid domain name.")
